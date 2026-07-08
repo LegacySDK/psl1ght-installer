@@ -1,69 +1,76 @@
 # Prerequisites
-*.d
-
+sh/*.d
+sh/
 # Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
+sh/*.slo
+sh/*.lo
+sh/*.o
+sh/*.obj
+sh/
 # Precompiled Headers
-*.gch
-*.pch
-
+sh/*.gch
+sh/*.pch
+sh/
 # Linker files
-*.ilk
-
+sh/*.ilk
+sh/
 # Debugger Files
-*.pdb
-
+sh/*.pdb
+sh/
 # Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-*.so.*
-
-
+sh/*.so
+sh/*.dylib
+sh/*.dll
+sh/*.so.*
+sh/
+sh/
 # Fortran module files
-*.mod
-*.smod
-
+sh/*.mod
+sh/*.smod
+sh/
 # Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
+sh/*.lai
+sh/*.la
+sh/*.a
+sh/*.lib
+sh/
 # Executables
-*.exe
-*.out
-*.app
-
+sh/*.exe
+sh/*.out
+sh/*.app
+sh/
 # Build directories
-build/
-Build/
-build-*/
-
+sh/build/
+sh/Build/
+sh/build-*/
+sh/
 # CMake generated files
-CMakeFiles/
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-install_manifest.txt
-compile_commands.json
-
+sh/CMakeFiles/
+sh/CMakeCache.txt
+sh/cmake_install.cmake
+sh/Makefile
+sh/install_manifest.txt
+sh/compile_commands.json
+sh/
 # Temporary files
-*.tmp
-*.log
-*.bak
-*.swp
-
+sh/*.tmp
+sh/*.log
+sh/*.bak
+sh/*.swp
+sh/
 # vcpkg
-vcpkg_installed/
-
+sh/vcpkg_installed/
+sh/
 # debug information files
-*.dwo
-
+sh/*.dwo
+sh/
 # test output & cache
-Testing/
-.cache/
+sh/Testing/
+sh/.cache/
+
+# stuff in c/
+c/build/
+c/installer
+c/ps3dev.zip
+c/ps3dev/
+c/third-party/curl-8.21.0/build/
