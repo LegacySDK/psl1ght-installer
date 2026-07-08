@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS := -Wall -Wextra -Iinclude -Ithird-party
-LDFLAGS := ./third-party/curl-8.21.0/build/lib/libcurl.so ./third-party/zip-0.3.14-miniz.3.1.1/build/libzip.so
+LDFLAGS := ./third-party/curl-8.21.0/build/lib/libcurl.so
 SRCS := $(wildcard src/*.c)
 BUILD_DIR := build
 

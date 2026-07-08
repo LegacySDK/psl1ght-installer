@@ -14,9 +14,10 @@
 #define DEFAULT_EXTRACT_DESTINATION "./legacysdk-ps3-kit" // also the install location i guess
 
 char extract_destination[512] = DEFAULT_EXTRACT_DESTINATION;
+char ps3dev_url[512] = PS3DEV_URL;
 
 void print_help() {
-    printf("help menu\n  --help: show this menu\n  --location [LOCATION]: install the kit to LOCATION\n");
+    printf("help menu\n  --help: show this menu\n  --location [LOCATION]: install the kit to LOCATION\n  --url [URL]: download ps3dev.zip from URL\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -44,6 +45,20 @@ int main(int argc, char *argv[]) {
 
             strcpy(extract_destination, argv[advancement]);
             advancement++;
+        } else if(strcmp(argv[advancement], "--url") == 0) {
+            advancement++;
+            if(advancement >= argc) {
+                printf("error: please provide an url!\n");
+                print_help();
+                return 1;
+            }
+            if(strlen(argv[advancement]) >= 512) {
+                printf("url is too big!\n");
+                return 1;
+            }
+
+            strcpy(ps3dev_url, argv[advancement]);
+            advancement++;
         } else {
             printf("unrecognized command line argument: %s\n", argv[advancement]);
             return 1;
@@ -51,7 +66,7 @@ int main(int argc, char *argv[]) {
     }
 
 
-    const int download_result = download_ps3dev(DEFAULT_FILENAME, PS3DEV_URL);
+    const int download_result = download_ps3dev(DEFAULT_FILENAME, ps3dev_url);
     if(download_result != 0) {
         printf("an error occured while downloading ps3dev.zip!\n  - URL: %s\n", PS3DEV_URL);
         return download_result;
