@@ -9,6 +9,35 @@ CLER='\033[0m'     # sorry i have to make this pretty, dont ask why its CLER not
 
 INSTALL_PATH="/opt/ps3dev"
 
+rainbow() { # i stole this >:3
+    local text="$*"
+    local len=${#text}
+    local i r g b
+
+    for ((i=0; i<len; i++)); do
+        local h=$(( i * 360 / (len > 1 ? len - 1 : 1) ))
+        local x=$(( (60 - (h % 120 - 60 < 0 ? -(h % 120 - 60) : (h % 120 - 60))) * 255 / 60 ))
+
+        case $((h / 60)) in
+            0) r=255; g=$x;   b=0   ;;
+            1) r=$x;  g=255;  b=0   ;;
+            2) r=0;   g=255;  b=$x  ;;
+            3) r=0;   g=$x;   b=255 ;;
+            4) r=$x;  g=0;    b=255 ;;
+            *) r=255; g=0;    b=$x  ;;
+        esac
+
+        echo -ne "\e[38;2;${r};${g};${b}m${text:i:1}"
+    done
+
+    echo -e "\e[0m"
+}
+
+rainbow "--------------------------------------------------"
+echo -e "            Made by ${CYAN}Hlelo${CLER} and ${CYAN}miskaa${CLER}!"
+echo -e " Join our discord! ${GREN}https://discord.gg/s7ynJawdPq${CLER}"
+rainbow "--------------------------------------------------"
+
 URLPRIMARY="https://hlelo.cc/files/ps3dev.zip"
 URLSECONDARY="https://miskaa.pl/upload/ps3dev.zip"
 
@@ -25,7 +54,7 @@ fi
 mkdir -p "${INSTALL_PATH}/tmp"
 tmp="${INSTALL_PATH}/tmp"
 
-echo "plz gimme a sec"
+echo "plz gimme a sec (this part can take a bit)"
 
 STATUS=$(curl --connect-timeout 2 --max-time 3 -s -o /dev/null -L -w "%{http_code}" "$URLPRIMARY")
 
@@ -104,18 +133,21 @@ export PS3DEV="$INSTALL_PATH"
 export PSL1GHT="$INSTALL_PATH/INSTALL_PSL1GHT"
 export PATH="\$PS3DEV/ppu/bin:\$PS3DEV/spu/bin:\$PATH"
 EOF
-# for some reason this happens with github idk why but its all Blue.
 
 cd "${PS3DEV}/PSL1GHT"
 make install-ctrl
 make
 make install
 
+rainbow "--------------------------------------------------"
 echo -e "${CYAN}Trying to compile something, please wait...${CLER}"
+rainbow "--------------------------------------------------"
 cd "${PS3DEV}/PSL1GHT/samples/sys/msgdialog"
 make clean
 make
 
-echo -e "\n\n\n\n\n\n\n\n\nIf it did not error or anything, congratulations!"
+rainbow "--------------------------------------------------"
+echo -e "If it did not error or anything, congratulations!"
+rainbow "--------------------------------------------------"
 
 echo -e "${GREN}Done! Please restart your terminal or run 'source ~/.bashrc'${CLER}"
