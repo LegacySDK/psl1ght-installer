@@ -6,5 +6,5 @@ Follow the instructions in c/README.md to setup the C version
 
 install via sh script:
 ```sh
-curl -fsSL https://miskaa.pl/legacysdk/sh/setup.sh | bash
+curl -fsSL https://miskaa.pl/legacysdk/sh/setup.sh | sudo bash
 ```
