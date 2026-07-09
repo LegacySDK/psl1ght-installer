@@ -144,6 +144,7 @@ export PATH="\$PS3DEV/ppu/bin:\$PS3DEV/spu/bin:\$PATH"
 EOF
 
 cd "${PS3DEV}/PSL1GHT"
+make clean
 make install-ctrl
 make
 make install
