@@ -124,6 +124,10 @@ echo -e "please give me a moment"
 
 mkdir "${INSTALL_PATH}/INSTALL_PSL1GHT"
 
+USERNAME="${SUDO_USER:-$USER}"
+echo -e "${CYAN}Setting ownership of ${INSTALL_PATH} to ${USERNAME}...${CLER}"
+chown -R "${USERNAME}:" "$INSTALL_PATH"
+
 # all of these are local btw
 export PS3DEV="${INSTALL_PATH}" # dont ask
 export PSL1GHT="${INSTALL_PATH}/INSTALL_PSL1GHT"
