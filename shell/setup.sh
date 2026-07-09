@@ -95,6 +95,11 @@ if ! command -v unzip &> /dev/null; then
     exit 1
 fi
 
+if ! command -v make &> /dev/null; then
+    echo -e "${REDB}'make' is not installed! Quitting...${CLER}"
+    exit 1
+fi
+
 unzip -q -o "$ZIP_FILE" -d "$INSTALL_PATH"
 
 if [ $? -eq 0 ]; then
