@@ -8,3 +8,5 @@ install via sh script:
 ```sh
 curl -fsSL https://miskaa.pl/legacysdk/sh/setup.sh | sudo bash
 ```
+
+# Since PSL1GHT or PS3TOOLCHAIN are *kindaa* not worth it on windows, try going over [here](https://miskaa.pl/upload/ps3sdk/) for the official ps3sdk on windows
